@@ -4,6 +4,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/parser.dart' as parser;
 import 'package:html/dom.dart' as dom;
+import 'package:url_launcher/url_launcher.dart';
 
 
 ///[StatefulWidget] que implementa toda la información extraida del Catastro en un SlidingUpPanel, controlado por [panelController]
@@ -125,13 +126,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                         fontWeight: FontWeight.bold,
                         fontSize: 17),
                   ),
-                  Text(
-                    widget.lineString['web'] == null ? "No disponible":  widget.lineString['web']['value'],
-                    style: const TextStyle(
+                  GestureDetector(
+                    onTap: (){
+                      if (widget.lineString['web'] != null) launchUrl(Uri.parse(widget.lineString['web']['value']),mode: LaunchMode.externalApplication);
+                    },
+                    child: widget.lineString['web'] == null ?
+                    const Text(
+                      "No disponible",
+                      style: TextStyle(
+                          fontFamily: "SFPro",
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: Colors.black54),
+                    ) :
+                    Text ( widget.lineString['web']['value'],
+                      style: const TextStyle(
+                        decoration: TextDecoration.underline,
                         fontFamily: "SFPro",
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
                         color: Colors.black54),
+                    )
                   ),
                   const SizedBox(height: 25),
                   Column(
@@ -145,13 +160,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                             fontWeight: FontWeight.bold,
                             fontSize: 17),
                       ),
-                      Text(
-                        widget.lineString['sig']['value'],
-                        style: const TextStyle(
-                            fontFamily: "SFPro",
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                            color: Colors.black54),
+                      GestureDetector(
+                          onTap: (){
+                            if (widget.lineString['sig'] != null) launchUrl(Uri.parse(widget.lineString['sig']['value']),mode: LaunchMode.externalApplication);
+                          },
+                          child: widget.lineString['sig'] == null ?
+                          const Text(
+                            "No disponible",
+                            style: TextStyle(
+                                fontFamily: "SFPro",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.black54),
+                          ) :
+                          Text ( widget.lineString['sig']['value'],
+                            style: const TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontFamily: "SFPro",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.black54),
+                          )
                       ),
                       const SizedBox(height: 10),
                       list.isEmpty ? const Center(
@@ -246,13 +275,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                             fontWeight: FontWeight.bold,
                             fontSize: 17),
                       ),
-                      Text(
-                        widget.lineString['sig']['value'],
-                        style: const TextStyle(
-                            fontFamily: "SFPro",
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                            color: Colors.black54),
+                      GestureDetector(
+                          onTap: (){
+                            if (widget.lineString['sig'] != null) launchUrl(Uri.parse(widget.lineString['sig']['value']),mode: LaunchMode.externalApplication);
+                          },
+                          child: widget.lineString['sig'] == null ?
+                          const Text(
+                            "No disponible",
+                            style: TextStyle(
+                                fontFamily: "SFPro",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.black54),
+                          ) :
+                          Text ( widget.lineString['sig']['value'],
+                            style: const TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontFamily: "SFPro",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.black54),
+                          )
                       ),
                       const SizedBox(height: 10),
                       list.isEmpty ? const Center(
@@ -326,13 +369,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                         fontWeight: FontWeight.bold,
                         fontSize: 17),
                   ),
-                  Text(
-                    widget.lineString['web'] == null ? "No disponible":  widget.lineString['web']['value'],
-                    style: const TextStyle(
-                        fontFamily: "SFPro",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.black54),
+                  GestureDetector(
+                      onTap: (){
+                        if (widget.lineString['web'] != null) launchUrl(Uri.parse(widget.lineString['web']['value']),mode: LaunchMode.externalApplication);
+                      },
+                      child: widget.lineString['web'] == null ?
+                      const Text(
+                        "No disponible",
+                        style: TextStyle(
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      ) :
+                      Text ( widget.lineString['web']['value'],
+                        style: const TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      )
                   ),
                   const SizedBox(height: 25),
                   Column(
@@ -346,13 +403,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                             fontWeight: FontWeight.bold,
                             fontSize: 17),
                       ),
-                      Text(
-                        widget.lineString['sig']['value'],
-                        style: const TextStyle(
-                            fontFamily: "SFPro",
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                            color: Colors.black54),
+                      GestureDetector(
+                          onTap: (){
+                            if (widget.lineString['sig'] != null) launchUrl(Uri.parse(widget.lineString['sig']['value']),mode: LaunchMode.externalApplication);
+                          },
+                          child: widget.lineString['sig'] == null ?
+                          const Text(
+                            "No disponible",
+                            style: TextStyle(
+                                fontFamily: "SFPro",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.black54),
+                          ) :
+                          Text ( widget.lineString['sig']['value'],
+                            style: const TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontFamily: "SFPro",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.black54),
+                          )
                       ),
                       const SizedBox(height: 10),
                       list.isEmpty ? const Center(
@@ -458,13 +529,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                         fontWeight: FontWeight.bold,
                         fontSize: 17),
                   ),
-                  Text(
-                    widget.lineString['telef'] == null ? "No disponible": widget.lineString['telef']['value'],
-                    style: const TextStyle(
-                        fontFamily: "SFPro",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.black54),
+                  GestureDetector(
+                      onTap: (){
+                        if (widget.lineString['telef'] != null) launchUrl(Uri.parse("tel:" + widget.lineString['telef']['value']),mode: LaunchMode.externalApplication);
+                      },
+                      child: widget.lineString['telef'] == null ?
+                      const Text(
+                        "No disponible",
+                        style: TextStyle(
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      ) :
+                      Text ( widget.lineString['telef']['value'],
+                        style: const TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      )
                   ),
                   const SizedBox(height: 15),
                   const Text(
@@ -474,13 +559,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                         fontWeight: FontWeight.bold,
                         fontSize: 17),
                   ),
-                  Text(
-                    widget.lineString['web'] == null ? "No disponible":  widget.lineString['web']['value'],
-                    style: const TextStyle(
-                        fontFamily: "SFPro",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.black54),
+                  GestureDetector(
+                      onTap: (){
+                        if (widget.lineString['web'] != null) launchUrl(Uri.parse(widget.lineString['web']['value']),mode: LaunchMode.externalApplication);
+                      },
+                      child: widget.lineString['web'] == null ?
+                      const Text(
+                        "No disponible",
+                        style: TextStyle(
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      ) :
+                      Text ( widget.lineString['web']['value'],
+                        style: const TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      )
                   ),
                   const SizedBox(height: 25),
                 ],
@@ -546,13 +645,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                         fontWeight: FontWeight.bold,
                         fontSize: 17),
                   ),
-                  Text(
-                    widget.lineString['telef'] == null ? "No disponible": widget.lineString['telef']['value'],
-                    style: const TextStyle(
-                        fontFamily: "SFPro",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.black54),
+                  GestureDetector(
+                      onTap: (){
+                        if (widget.lineString['telef'] != null) launchUrl(Uri.parse("tel:" + widget.lineString['telef']['value']),mode: LaunchMode.externalApplication);
+                      },
+                      child: widget.lineString['telef'] == null ?
+                      const Text(
+                        "No disponible",
+                        style: TextStyle(
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      ) :
+                      Text ( widget.lineString['telef']['value'],
+                        style: const TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      )
                   ),
                   const SizedBox(height: 15),
                   const Text(
@@ -562,13 +675,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                         fontWeight: FontWeight.bold,
                         fontSize: 17),
                   ),
-                  Text(
-                    widget.lineString['email'] == null ? "No disponible": widget.lineString['email']['value'],
-                    style: const TextStyle(
-                        fontFamily: "SFPro",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.black54),
+                  GestureDetector(
+                      onTap: (){
+                        if (widget.lineString['email'] != null) launchUrl(Uri.parse("mailto:" + widget.lineString['email']['value']),mode: LaunchMode.externalApplication);
+                      },
+                      child: widget.lineString['email'] == null ?
+                      const Text(
+                        "No disponible",
+                        style: TextStyle(
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      ) :
+                      Text ( widget.lineString['email']['value'],
+                        style: const TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      )
                   ),
                   const SizedBox(height: 15),
                   const Text(
@@ -578,13 +705,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                         fontWeight: FontWeight.bold,
                         fontSize: 17),
                   ),
-                  Text(
-                    widget.lineString['web'] == null ? "No disponible":  widget.lineString['web']['value'],
-                    style: const TextStyle(
-                        fontFamily: "SFPro",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.black54),
+                  GestureDetector(
+                      onTap: (){
+                        if (widget.lineString['web'] != null) launchUrl(Uri.parse(widget.lineString['web']['value']),mode: LaunchMode.externalApplication);
+                      },
+                      child: widget.lineString['web'] == null ?
+                      const Text(
+                        "No disponible",
+                        style: TextStyle(
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      ) :
+                      Text ( widget.lineString['web']['value'],
+                        style: const TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      )
                   ),
                   const SizedBox(height: 25),
                 ],
@@ -674,13 +815,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                         fontWeight: FontWeight.bold,
                         fontSize: 17),
                   ),
-                  Text(
-                    widget.lineString['telef'] == null ? "No disponible":  widget.lineString['telef']['value'],
-                    style: const TextStyle(
-                        fontFamily: "SFPro",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.black54),
+                  GestureDetector(
+                      onTap: (){
+                        if (widget.lineString['telef'] != null) launchUrl(Uri.parse("tel:" + widget.lineString['telef']['value']),mode: LaunchMode.externalApplication);
+                      },
+                      child: widget.lineString['telef'] == null ?
+                      const Text(
+                        "No disponible",
+                        style: TextStyle(
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      ) :
+                      Text ( widget.lineString['telef']['value'],
+                        style: const TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      )
                   ),
                   const SizedBox(height: 15),
                   const Text(
@@ -690,13 +845,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                         fontWeight: FontWeight.bold,
                         fontSize: 17),
                   ),
-                  Text(
-                    widget.lineString['email'] == null ? "No disponible":  widget.lineString['email']['value'],
-                    style: const TextStyle(
-                        fontFamily: "SFPro",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                        color: Colors.black54),
+                  GestureDetector(
+                      onTap: (){
+                        if (widget.lineString['email'] != null) launchUrl(Uri.parse("mailto:" + widget.lineString['email']['value']),mode: LaunchMode.externalApplication);
+                      },
+                      child: widget.lineString['email'] == null ?
+                      const Text(
+                        "No disponible",
+                        style: TextStyle(
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      ) :
+                      Text ( widget.lineString['email']['value'],
+                        style: const TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontFamily: "SFPro",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                            color: Colors.black54),
+                      )
                   ),
                   const SizedBox(height: 25),
                   Column(
@@ -710,13 +879,27 @@ class _SlidablePanelState extends State<SlidablePanel> {
                             fontWeight: FontWeight.bold,
                             fontSize: 17),
                       ),
-                      Text(
-                        widget.lineString['sig']['value'],
-                        style: const TextStyle(
-                            fontFamily: "SFPro",
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                            color: Colors.black54),
+                      GestureDetector(
+                          onTap: (){
+                            if (widget.lineString['sig'] != null) launchUrl(Uri.parse(widget.lineString['sig']['value']),mode: LaunchMode.externalApplication);
+                          },
+                          child: widget.lineString['sig'] == null ?
+                          const Text(
+                            "No disponible",
+                            style: TextStyle(
+                                fontFamily: "SFPro",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.black54),
+                          ) :
+                          Text ( widget.lineString['sig']['value'],
+                            style: const TextStyle(
+                                decoration: TextDecoration.underline,
+                                fontFamily: "SFPro",
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                                color: Colors.black54),
+                          )
                       ),
                       const SizedBox(height: 10),
                       list.isEmpty ? const Center(

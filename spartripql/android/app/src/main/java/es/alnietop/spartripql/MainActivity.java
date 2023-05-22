@@ -1,4 +1,4 @@
-package es.alnietop.spartripql.spartripql;
+package es.alnietop.spartripql;
 
 import io.flutter.embedding.android.FlutterActivity;
 
