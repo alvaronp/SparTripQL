@@ -28,7 +28,7 @@ class SparqlQueries{
       case "Restaurantes":
         query = queryRestaurantes;
         break;
-      case "Bares y cafeterías":
+      case "Bar/Cafeterías":
         query = queryBarCafes;
         break;
       case "Polideportivos":

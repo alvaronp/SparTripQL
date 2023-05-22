@@ -11,47 +11,52 @@ const String queryReligioso =
     "?uri rdfs:label ?nombre. }";
 
 const String queryMonum=
-    "SELECT ?uri ?geo_long  ?geo_lat ?clase ?nombre ?tieneEnlaceSIG WHERE {\n"
+    "SELECT ?uri ?geo_long  ?geo_lat ?clase ?nombre ?sig WHERE {\n"
         "?uri a mon:Monumento.\n"
         "?uri geo:long ?geo_long.\n"
         "?uri geo:lat ?geo_lat.\n"
         "?uri mon:categoria ?clase.\n"
     "?uri mon:nombre ?nombre.\n"
-    "OPTIONAL  {?uri mon:urlSig ?tieneEnlaceSIG. }}";
+    "OPTIONAL  {?uri mon:urlSig ?sig. }}";
 
 const String queryMuseos=
-    "SELECT ?uri ?schema_url ?geo_lat ?geo_long ?nombre WHERE {\n"
+    "SELECT ?uri ?web ?geo_lat ?geo_long ?nombre ?sig WHERE {\n"
         "?uri a om:Museo.\n"
         "?uri geo:lat ?geo_lat.\n"
         "?uri geo:long ?geo_long.\n"
         "?uri rdfs:label ?nombre.\n"
-        "OPTIONAL {?uri schema:url ?schema_url.}}";
+        "OPTIONAL  {?uri om:tieneEnlaceSIG ?sig. }\n"
+        "OPTIONAL {?uri schema:url ?web.}}";
 
 const String queryRestaurantes =
-    "select ?URI ?nombre ?categoria ?capacidad ?telef ?web where{\n"
+    "select ?URI ?geo_lat ?geo_long ?nombre ?categoria ?capacidad ?telef ?web where{\n"
         "?URI a om:Restaurante.\n"
         "?URI om:categoriaRestaurante ?categoria.\n"
         "?URI om:capacidadPersonas ?capacidad.\n"
         "?URI rdfs:label ?nombre.\n"
+        "?URI geo:lat ?geo_lat.\n"
+        "?URI geo:long ?geo_long.\n"
         "OPTIONAL{?URI schema:telephone ?telef. }.\n"
         "OPTIONAL{?URI schema:url ?web. }}";
 
 const String queryBarCafes =
-    "SELECT ?URI ?nombre ?geo_lat ?geo_long ?capacidad ?schema_email ?schema_url where{\n"
+    "SELECT ?URI ?nombre ?geo_lat ?geo_long ?capacidad ?email ?web ?telef where{\n"
     "?URI a om:CafeBar.\n"
     "?URI rdfs:label ?nombre.\n"
-    "OPTIONAL{?URI schema:email ?schema_email. }\n"
-    "OPTIONAL{?URI schema:url ?schema_url. }\n"
+    "OPTIONAL{?URI schema:email ?email. }\n"
+    "OPTIONAL{?URI schema:telephone ?telef. }\n"
+    "OPTIONAL{?URI schema:url ?web. }\n"
     "OPTIONAL{?URI om:capacidadPersonas ?capacidad. }\n"
     "?URI geo:long ?geo_long.\n"
-    "?URI geo:lat ?geo_lat. }";
+    "?URI geo:lat ?geo_lat.}";
 
 const String queryFarmacias =
-    "SELECT ?uri ?geo_long ?geo_lat ?nombre ?telefono ?Horario_de_manana_Opens ?Horario_de_manana_Closes ?Horario_de_tarde_invierno_Opens ?Horario_de_tarde_invierno_Closes ?Horario_de_tarde_verano_Opens ?Horario_de_tarde_verano_Closes ?Horario_Extendido_Opens ?Horario_Extendido_Closes WHERE {\n"
+    "SELECT ?uri ?geo_long ?geo_lat ?nombre ?sig ?telef ?Horario_de_manana_Opens ?Horario_de_manana_Closes ?Horario_de_tarde_invierno_Opens ?Horario_de_tarde_invierno_Closes ?Horario_de_tarde_verano_Opens ?Horario_de_tarde_verano_Closes ?Horario_Extendido_Opens ?Horario_Extendido_Closes WHERE {\n"
     "?uri a far:Farmacia.\n"
     "?uri far:long ?geo_long.\n"
     "?uri far:lat ?geo_lat.\n"
     "?uri far:nombre ?nombre.\n"
+    "OPTIONAL  {?uri far:url ?sig. }\n"
     "OPTIONAL  {?uri far:telefono ?telefono. }\n"
     "OPTIONAL  {?uri far:horMananaOpen ?Horario_de_manana_Opens. }\n"
     "OPTIONAL  {?uri far:horMananaClose ?Horario_de_manana_Closes. }\n"

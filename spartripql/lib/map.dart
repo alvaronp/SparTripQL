@@ -41,7 +41,7 @@ class _MapState extends State<Map> {
     datasetButton("Monumentos", Colors.orange, false),
     datasetButton("Museos", Colors.indigo, false),
     datasetButton("Farmacias", Colors.green, false),
-    datasetButton("Restaurantes", Colors.red, false),
+    datasetButton("Restaurantes", Colors.grey, false),
     datasetButton("Bar/Cafeterías", Colors.brown, false),
     datasetButton("Polideportivos", Colors.blue, false)];
 
@@ -147,6 +147,7 @@ class _MapState extends State<Map> {
                 clusterWidgetSize: const Size(30, 30),
                 maxClusterRadius: 80,
                 maxClusterZoom: 15,
+                minimumClusterSize: 5,
                 builder: (context, position, markerCount, extraClusterData) {
                   return Container(
                     decoration: BoxDecoration(
