@@ -7,10 +7,11 @@ name: Dart
 
 on:
   push:
-    branches: [ "master" ]
+    branches: 
+     - 'master/spartripql' 
   pull_request:
-    branches: [ "master" ]
-
+    branches: 
+     - 'master/spartripql' 
 jobs:
   build:
     runs-on: ubuntu-latest
